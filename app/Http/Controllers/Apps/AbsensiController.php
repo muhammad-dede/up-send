@@ -109,4 +109,12 @@ class AbsensiController extends Controller
         AbsensiDetail::where('id', $id)->delete();
         return redirect()->back();
     }
+
+    public function destroy(Request $request, $id)
+    {
+        Absensi::where('id', $id)->delete();
+        AbsensiDetail::where('id_absensi', $id)->delete();
+
+        return redirect()->route('absensi.index')->with('success', 'Berhasil dihapus!');
+    }
 }

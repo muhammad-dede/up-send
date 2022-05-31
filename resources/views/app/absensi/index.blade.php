@@ -24,7 +24,6 @@
                             <th>Matakuliah</th>
                             <th>Pertemuan Ke</th>
                             <th>Tanggal</th>
-                            <th>Materi</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -39,12 +38,17 @@
                                 </td>
                                 <td>{{ $absensi->pertemuan_ke }}</td>
                                 <td>{{ date('d-m-Y', strtotime($absensi->tanggal)) }}</td>
-                                <td>{{ $absensi->materi_kuliah }}</td>
                                 <td>
                                     <a href="{{ route('absensi.edit', $absensi->id) }}"
                                         class="btn btn-sm btn-warning">Ubah</a>
                                     <a href="{{ route('absensi.show', $absensi->id) }}"
                                         class="btn btn-sm btn-info">Absensi</a>
+                                    <form class="d-inline" action="{{ route('absensi.destroy', $absensi->id) }}"
+                                        method="POST">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach

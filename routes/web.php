@@ -27,6 +27,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::put('/absensi/update/{id}', [App\Http\Controllers\Apps\AbsensiController::class, 'update'])->name('absensi.update');
     Route::get('/absensi/show/{id}', [App\Http\Controllers\Apps\AbsensiController::class, 'show'])->name('absensi.show');
     Route::get('/absensi/show/absensi-detail/{id_absensi}', [App\Http\Controllers\Apps\AbsensiController::class, 'getAbsensiDetail'])->name('absensi.getAbsensiDetail');
+    Route::delete('/absensi/destroy/{id}', [App\Http\Controllers\Apps\AbsensiController::class, 'destroy'])->name('absensi.destroy');
     Route::post('/absensi/scanning', [App\Http\Controllers\Apps\AbsensiController::class, 'scanning'])->name('absensi.scanning');
     Route::delete('/absensi/destroy/detail/{id}', [App\Http\Controllers\Apps\AbsensiController::class, 'destroyDetail'])->name('absensi.destroy.detail');
 
